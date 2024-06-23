@@ -39,7 +39,10 @@ function drawText(font, text, position, element, scale = 1) {
 						for (var j = 0; j < scale; j++) {
 							var x = currentX + (col * scale) + j;
 							var y = currentY + (row * scale) + i;
-							if (x < width && y < height && !pixelMap[x][y]) {
+							if (pixelMap[x][y]) {
+								deletePixel(x, y)
+							}
+							if (x < width && y < height) {
 								createPixel(element, x, y);
 							}
 						}
